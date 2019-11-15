@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="mixer54_cube@mixer54.beget.tech" uuid="a2041128-8ae9-4ad9-a0f5-c9112d650748">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://mixer54.beget.tech:3306/mixer54_cube</jdbc-url>
+    </data-source>
+  </component>
+</project>

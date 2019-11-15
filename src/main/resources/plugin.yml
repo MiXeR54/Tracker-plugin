@@ -1,0 +1,4 @@
+name: Artefact
+version: ${project.version}
+main: groupid.artefact.Artefact
+api-version: 1.13
