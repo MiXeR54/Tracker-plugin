@@ -3,7 +3,6 @@ package groupid.artefact;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import com.sun.javafx.image.BytePixelSetter;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bukkit.Bukkit;
@@ -18,7 +17,7 @@ public class Artefact extends JavaPlugin implements Listener {
 
     public  static MongoCollection<Document> collection;
 
-    //сам бох знает что это за дерьмо
+    //сам бох знает что это но без него не работает
     static long joinDate;
     static long getJoinDate(){ return joinDate; }
 
@@ -27,8 +26,8 @@ public class Artefact extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new leaveDate(), this);
         // Подключение к базе
-        MongoClient mongoClient = MongoClients.create("mongodb+srv://server:123456)@timetracker-n8llr.mongodb.net/test?retryWrites=true&w=majority");
-        collection = mongoClient.getDatabase("spigot").getCollection("users");
+        MongoClient mongoClient = MongoClients.create("mongodb+srv://MiXeR54:<password>@mern-s1bxs.mongodb.net/test?retryWrites=true&w=majority");
+        collection = mongoClient.getDatabase("TimeTracker").getCollection("Users");
 
     }
 
@@ -51,16 +50,13 @@ public class Artefact extends JavaPlugin implements Listener {
         //поиск в базе
         Document found = (Document) collection.find(name).first();
         if (found != null){
-            //ебучее обновление
+            // обновление
             Bson updateJoinTime = new Document("joinDate", joinDate);
             Bson updateOper = new Document("$set", updateJoinTime);
             collection.updateOne(found, updateOper);
         } else {
-            //ебучая вставка если не нашел
+            // вставка если не нашел
             collection.insertOne(timers);
         }
     }
 }
-
-
-// != null

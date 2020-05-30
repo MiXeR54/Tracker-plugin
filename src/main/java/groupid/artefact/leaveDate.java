@@ -7,10 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class leaveDate implements Listener {
 
@@ -40,13 +37,13 @@ public class leaveDate implements Listener {
 //        System.out.println(found.getLong("joinDate"));
 
         if (found != null) {
-            //ебучее обновление
+            // обновление
             Bson updateLeaveTime = new Document("leaveDate", leaveDate);
             Bson updateLeaveOper = new Document("$set", updateLeaveTime);
             Artefact.collection.updateOne(found, updateLeaveOper);
 
 
-            //ебучий костыль от Ильи
+            // костыль от Ильи
              name = new Document("name", player.getName());
              found = (Document) Artefact.collection.find(name).first();
 
